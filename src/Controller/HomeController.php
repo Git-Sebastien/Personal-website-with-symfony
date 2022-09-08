@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\ContactMail;
+use App\Form\Type\ContactType;
 use Symfony\Bridge\Twig\Mime\TemplatedEmail;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Mailer\MailerInterface;
@@ -23,28 +24,9 @@ class HomeController extends AbstractController
         $contact = new ContactMail();
         $error = null;
         $success = null;
-        
 
-        $form = $this->createFormBuilder($contact)
-            ->add("name", TextType::class,[
-                'attr' => ['class' => 'form-control'],
-                'label' => 'Nom'])
-            ->add('email',EmailType::class,[
-                'attr' => ['class' => 'form-control'],
-                'label' => 'Email'])
-            ->add('subject',TextType::class,[
-                    'attr' => ['class' => 'form-control','rows' => 8],
-                    'label' => 'Sujet'])     
-            ->add('message',TextareaType::class,[
-                    'attr' => ['class' => 'form-control','rows' => 8],
-                    'label' => 'Message'])
-            ->add('save', SubmitType::class, [
-                'attr' => ['class' => 'btn btn-warning'],
-                'label' => 'Soumettre'])
-            ->setMethod('POST')
-            ->getForm();
-
-            $form->handleRequest($request);
+        $form = $this->createForm(ContactType::class,$contact);
+        $form->handleRequest($request);
             if ($form->isSubmitted() && $form->isValid()) {
                 $email = (new TemplatedEmail())
                     ->from('elwrci1011@gmail.com')
@@ -72,6 +54,9 @@ class HomeController extends AbstractController
                 $error = "Whoops ! Un problème est survenu durant l'envoi du mail";
                 $this->addFlash('error', 'Un problème est survenu');
             }
+
+            unset($form);
+            $form=$this->createForm(ContactType::class);
         return $this->renderForm('base.html.twig',compact('form','error','success'));
     }
 }

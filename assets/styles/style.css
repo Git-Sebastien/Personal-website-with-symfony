@@ -15,7 +15,6 @@
 }
 
 .portfolio {
-    height: 100vw;
     width: 100%;
     background-color: #f6f3f3;
     padding: 3rem;
@@ -90,7 +89,7 @@ nav>ul>li {
 }
 
 nav>ul>li>a {
-    font-size: 27px;
+    font-size: 20px;
     text-transform: uppercase;
     font-family: "Consolas", serif;
     color: white;
@@ -291,7 +290,7 @@ path {
 .banner {
     width: 92%;
     margin-left: 1rem;
-    margin-top: 18rem;
+    margin-top: 22rem;
 }
 
 .banner span {
@@ -320,6 +319,9 @@ path {
     position: absolute;
     left: 39%;
     top: 12%;
+    animation: slide-top 1s forwards ease-in;
+    opacity: 0;
+    animation-delay: 1s;
 }
 
 
@@ -451,6 +453,7 @@ path {
     }
     .myself {
         left: 209px;
+        top: 109px;
     }
     .banner {
         width: 100%;
