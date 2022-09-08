@@ -1,0 +1,20 @@
+{% block contact %}
+
+<h2>Contact</h2>
+<div class="row justify-content-center border p-5 border-light border-3">
+     <article class="col-md-5 col-sm-12 align-self-center">
+        <p>
+            N'hésitez pas a me contacter en laissant votre nom, message et adresse email.<br>
+            Je pourrais ainsi vous répondre dans les meilleurs délais.  
+        </p>
+    </article>
+    <div class="form-group col-md-6 col-sm-12">
+        {{ form_start(form, {'attr': {'id': 'form-contact'}}) }}
+        {{ form_end(form) }}
+
+    </div>
+</div>
+   
+  
+{% endblock %}
+

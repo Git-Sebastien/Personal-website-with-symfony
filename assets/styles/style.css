@@ -15,20 +15,28 @@
 }
 
 .portfolio {
-    height: 100vh;
+    height: 100vw;
     width: 100%;
     background-color: #f6f3f3;
     padding: 3rem;
+    background: url(../../public/img/background-folio.png);
+    background-attachment: fixed;
 }
 
 h2 {
     color: #795548;
     text-align: center;
-    margin-bottom: 6rem;
+    width: 85%;
+    padding: 1rem;
+    margin: 0 auto 6rem;
 }
 
 h2::before {
-    content: " | "
+    content: " < "
+}
+
+h2::after {
+    content: " /> "
 }
 
 header {
@@ -42,6 +50,7 @@ nav {
 .blog,
 .folio-photographer {
     margin-top: 6rem;
+    margin-bottom: 6rem;
     padding: 10px;
     background-color: #607d8b;
 }
@@ -115,7 +124,7 @@ nav>ul>li:nth-child(2) {
     position: absolute;
     left: 53%;
     transform: translate(-50%, 50%);
-    bottom: 52%;
+    bottom: 50%;
     width: 300px;
     animation: fade-in 1s ease-in forwards;
     opacity: 0;
@@ -139,7 +148,11 @@ h1 {
     cursor: pointer;
 }
 
-b5e740f600349cc45e313fd471490d0c .fade-in {
+a:hover {
+    color: #ffc107;
+}
+
+.fade-in {
     animation: fade-in 1s ease-in-out forwards;
     animation-delay: 1.8s;
     opacity: 0;
@@ -160,6 +173,50 @@ body {
 img {
     max-width: 100%;
 }
+
+footer {
+    background-color: #202020;
+    color: white;
+    font-family: "Consolas", serif;
+    padding: 10px;
+}
+
+.socials {
+    display: flex;
+    column-gap: 53px;
+    list-style: none;
+    justify-content: center;
+}
+
+.socials li {
+    align-self: center;
+}
+
+.fa-github {
+    color: white;
+}
+
+.fa-linkedin {
+    color: blue;
+}
+
+.contact {
+    padding: 2rem;
+    font-family: "Consolas", serif;
+    font-size: 20px;
+    background-color: #f2f2f282;
+}
+
+.contact p {
+    font-size: 30px;
+}
+
+form {
+    text-align: center;
+}
+
+
+/* Burger */
 
 .burger {
     position: sticky;
@@ -234,7 +291,7 @@ path {
 .banner {
     width: 92%;
     margin-left: 1rem;
-    margin-top: 17rem;
+    margin-top: 18rem;
 }
 
 .banner span {
@@ -252,6 +309,17 @@ path {
     font-family: "Consolas", "Courier New", "Courier";
     color: white;
     font-size: 17px;
+}
+
+.form-control {
+    width: 70%;
+    margin: 1rem auto 1rem
+}
+
+.alert {
+    position: absolute;
+    left: 39%;
+    top: 12%;
 }
 
 
@@ -394,13 +462,24 @@ path {
     .typed2 {
         font-size: 20px;
     }
+    footer {
+        display: flex;
+        justify-content: space-around;
+        padding: 6rem;
+    }
+    label {
+        font-size: 25px;
+    }
 }
 
 @media screen and (min-width:1000px) {
-    .blog,
-    .folio-photographer {
+    .blog {
         width: 70%;
         margin: auto;
+    }
+    .folio-photographer {
+        width: 70%;
+        margin: 0 auto 6rem;
     }
     .portfolio>article+article {
         margin-top: 3rem;
@@ -413,9 +492,6 @@ path {
         margin-left: 20em;
     }
     .banner {
-        /* width: 42%;
-margin-left: 67rem;
-margin-top: 10rem; */
         width: 46%;
         margin-left: 29rem;
         margin-top: 4rem;
