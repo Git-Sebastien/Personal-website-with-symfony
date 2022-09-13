@@ -43,17 +43,3 @@ var typed2 = new Typed('.typed2', {
     typeSpeed: 30,
     startDelay: 6100
 });
-
-const siteKey = '6LcOI-whAAAAACmGnKqML46B5q6BN-bEb7-pE4y1';
-
-
-
-//or on form post:
-grecaptcha.ready(function() {
-    grecaptcha.execute(siteKey, {
-        action: 'homepage'
-    }).then(function(token) {
-        //submit the form
-        return http.post(url, { email, captcha: token });
-    });
-});

@@ -20,18 +20,18 @@
     </head>
     <body>
         <section class="header">
-            {% for message in app.flashes('success') %}
-                 <div class="alert alert-success alert-dismissible" role="alert"> 
-                    <span>{{ message }}</span>
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                </div>
-            {% endfor %}  
             {% include "layouts/header.html.twig" %}
         </section>
         <section class="portfolio" id="realisations">
             {% include "home/folio.html.twig" %}
         </section>   
         <section class="contact" id="contact">
+          {% for message in app.flashes('success') %}
+                 <div class="alert alert-success alert-dismissible" role="alert"> 
+                    <span>{{ message }}</span>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            {% endfor %}  
             {% include "contact/contact.html.twig" %}      
         </section>   
         {% include "layouts/footer.html.twig" %}
