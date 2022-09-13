@@ -4,7 +4,7 @@ namespace App\Form\Type;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\Component\Form\Extension\Core\Type\DateType;
+use VictorPrdh\RecaptchaBundle\Form\ReCaptchaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
@@ -27,9 +27,8 @@ class ContactType extends AbstractType
         ->add('message',TextareaType::class,[
                 'attr' => ['class' => 'form-control','rows' => 8],
                 'label' => 'Message'])
-        ->add('save', SubmitType::class, [
-            'attr' => ['class' => 'btn btn-warning'],
-            'label' => 'Soumettre'])
+        ->add('save', SubmitType::class, ['attr' => ['class' => 'btn btn-warning'],'label'=>'Soumettre'])
+        ->add('captcha',ReCaptchaType::class)
         ->setMethod('POST');
     }
-}
+}   

@@ -9,6 +9,7 @@ class ContactMail
     protected $email;
     protected $subject;
     protected $message;
+    protected $captcha;
 
 
     /**
@@ -87,6 +88,26 @@ class ContactMail
     public function setEmail($email)
     {
         $this->email = $email;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of captcha
+     */ 
+    public function getCaptcha()
+    {
+        return $this->captcha;
+    }
+
+    /**
+     * Set the value of captcha
+     *
+     * @return  self
+     */ 
+    public function setCaptcha($captcha)
+    {
+        $this->captcha = $captcha;
 
         return $this;
     }

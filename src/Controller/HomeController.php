@@ -9,54 +9,38 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Mailer\MailerInterface;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
-use Symfony\Component\Form\Extension\Core\Type\EmailType;
-use Symfony\Component\Form\Extension\Core\Type\SubmitType;
-use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-
 
 class HomeController extends AbstractController
 {
+    public $data_decode;
     #[Route('/', name:'base.html.twig')]
     public function index(Request $request,MailerInterface $mailer) : Response
     {
         $contact = new ContactMail();
-        $error = null;
-        $success = null;
-
         $form = $this->createForm(ContactType::class,$contact);
         $form->handleRequest($request);
-            if ($form->isSubmitted() && $form->isValid()) {
+            if ($form->isSubmitted()) {
+                
                 $email = (new TemplatedEmail())
-                    ->from('elwrci1011@gmail.com')
-                    ->to('sebastien.ancelin7@gmail.com')
-                    ->subject($form->get('subject')->getData())
-                   
-                    // path of the Twig template to render
-                    ->htmlTemplate('mail/contact.html.twig')
-
-                    // pass variables (name => value) to the template
-                    ->context([
-                        'expiration_date' => new \DateTime('+7 days'),
-                        'name' => $form->get('name')->getData(),
-                        'mail' => $form->get('email')->getData(),
-                        'subject' => $form->get('subject')->getData(),
-                        'message' => $form->get('message')->getData(),
-                    ]);
-                    $this->addFlash('success', 'Votre message a bien été envoyé');
-                    $success = "Message envoyé avec succés";
-                    
-                 $mailer->send($email);
-                 
+                ->from('elwrci1011@gmail.com')
+                ->to('sebastien.ancelin7@gmail.com')
+                ->subject($form->get('subject')->getData())
+                ->htmlTemplate('mail/contact.html.twig')
+                ->context([
+                    'expiration_date' => new \DateTime('+7 days'),
+                    'name' => $form->get('name')->getData(),
+                    'mail' => $form->get('email')->getData(),
+                    'subject' => $form->get('subject')->getData(),
+                    'message' => $form->get('message')->getData(),
+                ]);
+                $this->addFlash('success', 'Votre message a bien été envoyé');
+                $mailer->send($email);  
+                return $this->redirect($this->generateUrl('base.html.twig', array('mail' => "send")) . '#contact');
             }
-            else{
-                $error = "Whoops ! Un problème est survenu durant l'envoi du mail";
-                $this->addFlash('error', 'Un problème est survenu');
-            }
-
+            //Create new form to flush input
             unset($form);
-            $form=$this->createForm(ContactType::class);
-        return $this->renderForm('base.html.twig',compact('form','error','success'));
+            $form = $this->createForm(ContactType::class);
+        return $this->renderForm('base.html.twig',compact('form'));
     }
 }
