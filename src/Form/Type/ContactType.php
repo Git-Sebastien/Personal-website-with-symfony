@@ -16,17 +16,13 @@ class ContactType extends AbstractType
     {
         $builder
         ->add("name", TextType::class,[
-            'attr' => ['class' => 'form-control'],
-            'label' => 'Nom'])
+            'attr' => ['class' => 'form-control']])
         ->add('email',EmailType::class,[
-            'attr' => ['class' => 'form-control text-red'],
-            'label' => 'Email'])
+            'attr' => ['class' => 'form-control']])
         ->add('subject',TextType::class,[
-                'attr' => ['class' => 'form-control','rows' => 8],
-                'label' => 'Sujet'])     
+                'attr' => ['class' => 'form-control','rows' => 8]])     
         ->add('message',TextareaType::class,[
-                'attr' => ['class' => 'form-control','rows' => 8],
-                'label' => 'Message'])
+                'attr' => ['class' => 'form-control','rows' => 8]])
         ->add('save', SubmitType::class, ['attr' => ['class' => 'btn btn-warning'],'label'=>'Soumettre'])
         ->add('captcha',ReCaptchaType::class)
         ->setMethod('POST');

@@ -10,10 +10,14 @@
     </article>
     <div class="form-group col-md-6 col-sm-12">
         {{ form_start(form, {'attr': {'id': 'form-contact','class':'fade from-top'}}) }}
-        {{ form_row(form.name) }}
-        {{ form_row(form.email) }}
-        {{ form_row(form.subject) }}
-        {{ form_row(form.message) }}
+        {{ form_label(form.name, 'Nom', {'label_attr': {'class': 'text-red'}}) }}
+            {{ form_widget(form.name) }}
+        {{ form_label(form.email, 'Email', {'label_attr': {'class': 'text-red'}}) }}
+            {{ form_widget(form.email) }}
+        {{ form_label(form.subject, 'Sujet', {'label_attr': {'class': 'text-red'}}) }}
+            {{ form_widget(form.subject) }}
+        {{ form_label(form.message, 'Message', {'label_attr': {'class': 'text-red'}}) }}
+            {{ form_widget(form.message) }}
         {{ form_row(form.captcha) }}
         {{ form_row(form.save,{'attr': {'label':"Soumettre"}}) }}
         {{ form_end(form) }}
