@@ -11,7 +11,6 @@ class ContactMail
     protected $message;
     protected $captcha;
 
-
     /**
      * Get the value of name
      */ 

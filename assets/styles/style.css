@@ -208,6 +208,11 @@ footer {
 
 .contact p {
     font-size: 30px;
+    color: #f44336;
+}
+
+.text-red {
+    color: #f44336;
 }
 
 form {
@@ -324,6 +329,14 @@ path {
     animation: slide-top 1s forwards ease-in;
     opacity: 0;
     animation-delay: 1s;
+}
+
+.text-blog {
+    font-family: "Consolas", "Courier New", "Courier";
+    text-align: center;
+    padding: 1.2rem;
+    font-size: 1.5rem;
+    color: #ffc107;
 }
 
 

@@ -20,13 +20,21 @@
     </head>
     <body>
         <section class="header">
+          {% for message in app.flashes('mail_exist') %}
+                {% if message %}
+                    <div class="alert alert-success alert-dismissible" role="alert"> 
+                     <span>L'inscription à la newsletter à bien été prise en compte</span>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+                {% endif %}
+            {% endfor %}
             {% include "layouts/header.html.twig" %}
         </section>
         <section class="portfolio" id="realisations">
             {% include "home/folio.html.twig" %}
         </section>   
         <section class="contact" id="contact">
-          {% for message in app.flashes('success') %}
+            {% for message in app.flashes('success') %}
                  <div class="alert alert-success alert-dismissible" role="alert"> 
                     <span>{{ message }}</span>
                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
@@ -34,6 +42,14 @@
             {% endfor %}  
             {% include "contact/contact.html.twig" %}      
         </section>   
+        {% for message in app.flashes('mail_not_exist') %}
+            {% if message %}
+                <div class="alert alert-danger alert-dismissible" role="alert"> 
+                    <span>L'adresse email éxiste déjà</span>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            {% endif %}   
+        {% endfor %}  
         {% include "layouts/footer.html.twig" %}
     </body>
 </html>

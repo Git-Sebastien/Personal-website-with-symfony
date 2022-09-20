@@ -1,14 +1,11 @@
-<footer>
-    <ul class="socials">
+<footer id="footer">
+    <ul class="socials fade from-left">
         <li><a href="https://www.linkedin.com/in/sebancelin/"><i class="fa-brands fa-linkedin fa-2x"></i></a></li>
         <li><a href="https://github.com/Git-Sebastien"><i class="fa-brands fa-github fa-2x"></i></a></li>
     </ul>
     <div class="newsletter">
-        <form action="">
-            <label for="newsletter">Newsletter : </label>
-            <input type="text" name="newsletter" id="">
-            <button type="submit" class="btn btn-outline-warning">S'inscrire</button>
-        </form> 
+        {{ form_start(form_newsletter, {'attr': {'id': 'form-contact','class':'fade from-top','action': path('newsletter')}}) }}
+        {{ form_end(form_newsletter) }}
     </div>
 </footer>
 

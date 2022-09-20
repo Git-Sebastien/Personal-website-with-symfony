@@ -19,7 +19,7 @@ class ContactType extends AbstractType
             'attr' => ['class' => 'form-control'],
             'label' => 'Nom'])
         ->add('email',EmailType::class,[
-            'attr' => ['class' => 'form-control'],
+            'attr' => ['class' => 'form-control text-red'],
             'label' => 'Email'])
         ->add('subject',TextType::class,[
                 'attr' => ['class' => 'form-control','rows' => 8],
