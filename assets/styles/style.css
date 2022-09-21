@@ -25,9 +25,9 @@
 h2 {
     color: #795548;
     text-align: center;
-    width: 85%;
-    padding: 1rem;
+    width: 236px;
     margin: 0 auto 6rem;
+    font-size: 20px;
 }
 
 h2::before {
@@ -200,7 +200,7 @@ footer {
 }
 
 .contact {
-    padding: 2rem;
+    padding: 8rem;
     font-family: "Consolas", serif;
     font-size: 20px;
     background-color: #f2f2f282;
@@ -209,10 +209,11 @@ footer {
 .contact p {
     font-size: 30px;
     color: #f44336;
+    margin-bottom: 3rem;
 }
 
-.text-red {
-    color: #f44336;
+.text-black {
+    color: #00000096;
 }
 
 form {
@@ -229,7 +230,7 @@ form {
 
 .burger {
     position: sticky;
-    margin-right: 34px;
+    margin-right: -16px;
     top: 43px;
     left: 40rem;
     visibility: visible;
@@ -282,7 +283,6 @@ form {
 }
 
 svg {
-    display: block;
     position: relative;
     bottom: 2rem;
     right: 6px;
@@ -448,6 +448,54 @@ path {
 
 /* Media queries */
 
+@media screen and (min-width:320px) and (max-width:500px) {
+    svg {
+        display: none;
+    }
+    #contact_captcha {
+        width: 0%;
+        margin: 1rem 0rem 1rem;
+    }
+    .contact {
+        padding: 3px;
+    }
+    .row {
+        --bs-gutter-x: 1.5rem;
+        --bs-gutter-y: 0;
+    }
+    footer {
+        padding: 2rem;
+    }
+    .contact p {
+        font-size: 19px;
+    }
+    .form-control {
+        width: 100%;
+    }
+    .text-blog {
+        font-size: 15px;
+        padding: 5px;
+    }
+    .myself {
+        width: 200px;
+    }
+    .banner {
+        margin-top: 17rem;
+    }
+    .arrow {
+        display: none;
+    }
+    nav>ul>li>a {
+        font-size: 15px;
+    }
+}
+
+@media screen and (min-width:500px) {
+    svg {
+        display: block;
+    }
+}
+
 @media screen and (min-width:770px) {
     .burger {
         display: none;
@@ -471,7 +519,7 @@ path {
         top: 109px;
     }
     .banner {
-        width: 100%;
+        width: 70%;
         margin-left: 4rem;
         margin-top: 20rem;
     }

@@ -1,22 +1,22 @@
 {% block contact %}
 
 <h2>Contact</h2>
-<div class="row justify-content-center border border-light border-3">
+<div class="row justify-content-center">
      <article class="col-md-5 col-sm-12 align-self-center fade from-left">
         <p>
-            N'hésitez pas à me contacter en laissant votre nom, message et adresse email.<br>
-            Je pourrais ainsi vous répondre dans les meilleurs délais.  
+            Je vous propose de me contacter via ce formulaire qui m'avertira de votre message par mail.<br>
+            Vérifiez bien vos informations avant de les envoyer et je pourrais vous recontacter dans les meilleurs délais.
         </p>
     </article>
     <div class="form-group col-md-6 col-sm-12">
         {{ form_start(form, {'attr': {'id': 'form-contact','class':'fade from-top'}}) }}
-        {{ form_label(form.name, 'Nom', {'label_attr': {'class': 'text-red'}}) }}
+        {{ form_label(form.name, 'Nom', {'label_attr': {'class': 'text-black'}}) }}
             {{ form_widget(form.name) }}
-        {{ form_label(form.email, 'Email', {'label_attr': {'class': 'text-red'}}) }}
+        {{ form_label(form.email, 'Email', {'label_attr': {'class': 'text-black'}}) }}
             {{ form_widget(form.email) }}
-        {{ form_label(form.subject, 'Sujet', {'label_attr': {'class': 'text-red'}}) }}
+        {{ form_label(form.subject, 'Sujet', {'label_attr': {'class': 'text-black'}}) }}
             {{ form_widget(form.subject) }}
-        {{ form_label(form.message, 'Message', {'label_attr': {'class': 'text-red'}}) }}
+        {{ form_label(form.message, 'Message', {'label_attr': {'class': 'text-black'}}) }}
             {{ form_widget(form.message) }}
         {{ form_row(form.captcha) }}
         {{ form_row(form.save,{'attr': {'label':"Soumettre"}}) }}
