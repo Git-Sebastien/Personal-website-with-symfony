@@ -1,14 +1,19 @@
 {% block contact %}
 
 <h2>Contact</h2>
-<div class="row justify-content-center">
-     <article class="col-md-5 col-sm-12 align-self-center fade from-left">
+<div class="row justify-content-center gap-4">
+     <article class="col-md-6 col-sm-12 align-self-center fade from-left">
         <p>
-            Je vous propose de me contacter via ce formulaire qui m'avertira de votre message par mail.<br>
-            Vérifiez bien vos informations avant de les envoyer et je pourrais vous recontacter dans les meilleurs délais.
+            Hello World !<br>
+            Passionné par le web et la technologie depuis des années,c'est en toutes logique que j'ai débuter un parcours de reconversion professionnelle via la 3wAcademy pour obtenir le titre de développeur web.
+            J'apprend à coder depuis maintenant un peu plus de 3 ans et me suis découvert une appétence pour le back-end.
+            Du côté des frameworks, j'ai utilisé Symfony et Laravel pour le php et VueJS et Angular pour le Javascript.
+            Pour les besoins de la formation, nous devons effectuer une période de stage d'une durée de un mois.
+            Via ce formulaire, vous pouvez me laisser votre message et vos coordonnées pour convenir d'un entretien.<br>
+            A bientôt !
         </p>
     </article>
-    <div class="form-group col-md-6 col-sm-12">
+    <div class="form-group col-md-5 col-sm-12">
         {{ form_start(form, {'attr': {'id': 'form-contact','class':'fade from-top'}}) }}
         {{ form_label(form.name, 'Nom', {'label_attr': {'class': 'text-black'}}) }}
             {{ form_widget(form.name) }}

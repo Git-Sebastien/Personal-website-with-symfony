@@ -33,13 +33,13 @@ var typed = new Typed('.typed', {
 });
 
 var typed1 = new Typed('.typed1', {
-    strings: ["Vous trouverez mes réalisations ainsi que mes compétences !<br>"],
+    strings: ["Moi c'est Sébastien, 34 ans avec le projet de devenir développeur web !<br>"],
     typeSpeed: 30,
-    startDelay: 3500
+    startDelay: 3800
 });
 
 var typed2 = new Typed('.typed2', {
-    strings: ["N'hésitez pas a me contacter pour toutes demandes<br>"],
+    strings: ["N'hésitez pas a me contacter si mon profil vous intéresse !<br>"],
     typeSpeed: 30,
-    startDelay: 6100
+    startDelay: 7800
 });
